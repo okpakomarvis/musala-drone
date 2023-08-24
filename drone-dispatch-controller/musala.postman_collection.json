@@ -7,67 +7,204 @@
 	"item": [
 		{
 			"name": "Get all drones",
+			"api": "http://localhost:8080/api/drone",
 			"request": {
 				"method": "GET",
 				"header": []
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692823372130,
+			"response": [
+				{
+					"serialNumber": "DRONE201",
+					"weight": 0.0,
+					"capacity": 90,
+					"state": "IDLE",
+					"model": "Lightweight"
+				},
+				{
+					"serialNumber": "DRONE202",
+					"weight": 0.0,
+					"capacity": 90,
+					"state": "IDLE",
+					"model": "Lightweight"
+				}
+			]
 		},
 		{
 			"name": "Register drone",
+			"api": "http://localhost:8080/api/drone/register",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"serialNumber":"DRONE201",
+					"weight":0,
+					"capacity":70,
+					"state":"LOADING",
+					"model":"Lightweight"
+				}
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692826865273,
+			"response": {
+				"serialNumber": "DRONE201",
+				"weight": 0.0,
+				"capacity": 70,
+				"state": "IDLE",
+				"model": "Lightweight"
+			}
 		},
 		{
 			"name": "Get Drone by State",
+			"api": "http://localhost:8080/api/drone/droneByState/IDLE",
 			"request": {
 				"method": "GET",
 				"header": []
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827004405,
+			"response": [
+				{
+					"serialNumber": "DRONE202",
+					"weight": 0.0,
+					"capacity": 90,
+					"state": "IDLE",
+					"model": "Lightweight"
+				},
+				{
+					"serialNumber": "DRONE203",
+					"weight": 0.0,
+					"capacity": 70,
+					"state": "IDLE",
+					"model": "Lightweight"
+				},
+				{
+					"serialNumber": "DRONE201",
+					"weight": 0.0,
+					"capacity": 70,
+					"state": "IDLE",
+					"model": "Lightweight"
+				}
+			]
 		},
 		{
 			"name": "Get Available Drone",
+			"api": "http://localhost:8080/api/drone/availableDrone",
 			"request": {
 				"method": "GET",
 				"header": []
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827047590,
+			"response": [
+				{
+					"serialNumber": "DRONE202",
+					"weight": 0.0,
+					"capacity": 90,
+					"state": "IDLE",
+					"model": "Lightweight"
+				},
+				{
+					"serialNumber": "DRONE203",
+					"weight": 0.0,
+					"capacity": 70,
+					"state": "IDLE",
+					"model": "Lightweight"
+				},
+				{
+					"serialNumber": "DRONE201",
+					"weight": 0.0,
+					"capacity": 70,
+					"state": "IDLE",
+					"model": "Lightweight"
+				}
+			]
 		},
 		{
 			"name": "Get Drone Capacity",
+			"api": "http://localhost:8080/api/drone/droneCapacity/DRONE201",
 			"request": {
 				"method": "GET",
 				"header": []
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827146650,
+			"response": 70
 		},
 		{
 			"name": "Check Drone Medications",
+			"api": "http://localhost:8080/api/drone/medication/DRONE201",
 			"request": {
 				"method": "GET",
 				"header": []
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827415006,
+			"response": [
+				{
+					"code": "MEDICATION50",
+					"name": "Amazone",
+					"weight": 90.8,
+					"picture": "https://pixabay.com/images/search/url/",
+					"drone": {
+						"serialNumber": "DRONE201",
+						"weight": 181.6,
+						"capacity": 70,
+						"state": "LOADING",
+						"model": "Lightweight"
+					}
+				},
+				{
+					"code": "MEDICATION60",
+					"name": "Paracitamol",
+					"weight": 90.8,
+					"picture": "https://pixabay.com/images/search/url/",
+					"drone": {
+						"serialNumber": "DRONE201",
+						"weight": 181.6,
+						"capacity": 70,
+						"state": "LOADING",
+						"model": "Lightweight"
+					}
+				}
+			]
 		},
 		{
 			"name": "Register Medication",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"code":"MEDICATION60",
+					"name":"Paracitamol",
+					"weight":90.8,
+					"picture":"https://pixabay.com/images/search/url/"
+				}
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827245020,
+			"response": {
+				"code": "MEDICATION60",
+				"name": "Paracitamol",
+				"weight": 90.8,
+				"picture": "https://pixabay.com/images/search/url/",
+				"drone": null
+			}
 		},
 		{
 			"name": "Load Drone with Medications",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"serial": "DRONE201",
+					"medicationCodes":["MEDICATION50","MEDICATION60"]
+				}
 			},
-			"response": []
+			"status": "SUCCESS",
+			"timestamps": 1692827312971,
+			"response": "Medication Loaded"
 		}
 	]
 }

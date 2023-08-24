@@ -8,9 +8,10 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class loadRequestDTO {
+
+public class LoadRequestDTO {
     private String serial;
-    private List<Medication> medicationCodes;
+    private List<String> medicationCodes;
+
 }
